@@ -3,17 +3,16 @@ import java.util.Scanner;
 public class PalindromeCheckerApp {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
-        System.out.println("Enter the string to check: ");
         String input = sc.next();
-        boolean isPalindrome = true;
-        for (int i = 0; i < input.length() / 2; i++) {
+        String reversed = "";
 
-            if (input.charAt(i) != input.charAt(input.length() - 1 - i)) {
-                isPalindrome = false;
-                break;
-            }
+        // Iterate from last character to first
+        for (int i = input.length() - 1; i >= 0; i--) {
+            reversed = reversed + input.charAt(i);
         }
-        if (isPalindrome) {
+
+        // Compare original and reversed
+        if (input.equals(reversed)) {
             System.out.println(input + " is a Palindrome.");
         } else {
             System.out.println(input + " is NOT a Palindrome.");
